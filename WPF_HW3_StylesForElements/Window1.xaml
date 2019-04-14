@@ -1,0 +1,35 @@
+﻿<Window x:Class="WPF_HW3_StylesForElements.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_HW3_StylesForElements"
+        mc:Ignorable="d"
+        Title="About Author" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Flow document">
+            <FlowDocumentScrollViewer IsToolBarVisible="True">
+                <FlowDocument IsOptimalParagraphEnabled="True" Name="flowDoc">
+                    <Paragraph Foreground="Blue">
+                        Manko Nickolas 
+                    </Paragraph>
+                    <List MarkerStyle="Square">
+                        <ListItem>
+                            <Paragraph >C/C++, C#, WinForms, WPF, Git</Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>Communicability</Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>Special love for Entity Framework Core v.2.0 and realised there entities many-to-many relationship</Paragraph>
+                        </ListItem>
+                    </List>
+                    <Paragraph>
+                        Photo:<LineBreak/>
+                        <Image Name="imagePhoto"/>
+                    </Paragraph>
+                </FlowDocument>
+            </FlowDocumentScrollViewer>
+        </TabItem>
+    </TabControl>
+</Window>

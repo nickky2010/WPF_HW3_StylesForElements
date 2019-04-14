@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_HW3_StylesForElements"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Rectangle" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="primaryTextBoxStyle" >
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+        </Style>
+        <Style x:Key="myStyle" TargetType="TextBox" BasedOn="{StaticResource primaryTextBoxStyle}">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="BorderBrush" Value="Red"/>
+        </Style>
+        <local:Rectangle x:Key="myRectangle" Width="2.5" Height="3.5"/>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Name="labelHeight" Content="Height" Grid.Row="0"/>
+        <Label Name="labelWidth" Content="Width" Grid.Row="1"/>
+        <Label Name="labelSquare" Content="Square" Grid.Row="2"/>
+        <Label Name="labelPerimeter" Content="Perimeter" Grid.Row="3"/>
+        <TextBox Name="textBoxHeight" Grid.Row="0" Grid.Column="1" Style="{StaticResource primaryTextBoxStyle}" Text="{Binding Source={StaticResource myRectangle}, Path=Height}"/>
+        <TextBox Name="textBoxWidth" Grid.Row="1" Grid.Column="1" Style="{StaticResource primaryTextBoxStyle}" Text="{Binding Source={StaticResource myRectangle}, Path=Width}"/>
+        <TextBox Name="textBoxSquare" Grid.Row="2" Grid.Column="1" Style="{StaticResource myStyle}"/>
+        <TextBox Name="textBoxPerimeter" Grid.Row="3" Grid.Column="1" Style="{StaticResource myStyle}"/>
+        <Button Name="buttonCalculate" Content="Calculate" Grid.Row="1" Grid.Column="2" Click="ButtonCalculate_Click"/>
+        <Button Name="buttonAuthor" Content="About Author" Grid.Row="2" Grid.Column="2" Click="ButtonAuthor_Click"/>
     </Grid>
 </Window>
